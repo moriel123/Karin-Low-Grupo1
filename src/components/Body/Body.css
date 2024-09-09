@@ -1,0 +1,15 @@
+
+.carousel-item img {
+    width: 100%;
+    max-height: 360px;
+    object-fit: cover;
+}
+
+.tarjetas{
+    display: flex;
+    padding: 4px;
+}
+
+main {
+    background: #f9f5f0;
+}
