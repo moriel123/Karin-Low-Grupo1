@@ -1,5 +1,5 @@
 import "./Footer.css";
-import Logo from "../Imagenes/Logo.png";
+import Logo from "../../../public/Logo.png";
 function Footer(){
     return (
         <footer className="footer">
@@ -22,7 +22,7 @@ function Footer(){
                         <ul>
                             <li><a href="#">Politicas de Privacidad</a></li>
                             <li><a href="#">Términos y condiciones</a></li>
-                            <li><a href="#">Contactános</a></li>
+                            <li><a href="/contact">Contactános</a></li>
                         </ul>
                     </div>
 

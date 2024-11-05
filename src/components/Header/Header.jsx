@@ -1,5 +1,5 @@
 import "./Header.css";
-import Logo from "../Imagenes/Logo.png"
+import Logo from "../../../public/Logo.png"
 function Header(){
     return (
         <header>
@@ -31,10 +31,12 @@ function Header(){
                 <nav className="navbar container">
                     <i className="fa-solid fa-bars"></i>
                     <ul className="menu">
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">ayuda</a></li>
-                        <li><a href="#">Ajustes</a></li>
-                        <li><a href="#">notificaciones</a></li>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/category/cardigan">Cardigans</a></li>
+                        <li><a href="/category/pantalon">Pantalones</a></li>
+                        <li><a href="/category/vestido">Vestidos</a></li>
+                        <li><a href="/contact">Contacto</a></li>
                     </ul>
                     <form className="search-form">
                     <input type="search"  placeholder="Buscar.." />
