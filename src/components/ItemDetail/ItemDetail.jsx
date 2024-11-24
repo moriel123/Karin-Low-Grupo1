@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from 'react';
-
-import { useParams } from 'react-router-dom';
-import { getProductById } from '../../data/asyncMock.jsx';
-
+import React, {useEffect, useState} from 'react';
+import {useParams} from 'react-router-dom';
+import {getProductById} from '../../data/asyncMock.jsx';
 import Loading from '../Loading/Loading.jsx';
 
 export default function ItemDetail() {
-    const { productId } = useParams();
+    const {productId} = useParams();
     const [product, setProduct] = useState({product: 0, stock: 0});
-
-    // SETEO EL LOADING EN TRUE
     const [loading, setLoading] = useState(true);
 
-    // CARGO LA DATA DE LA MOCK
     useEffect(() => {
         getProductById(productId).then((data) => {
             setProduct(data);
@@ -20,68 +15,87 @@ export default function ItemDetail() {
         });
     }, [productId]);
 
-    // ESTADO PARA LA CANTIDAD
     const [quantity, setQuantity] = useState(1);
-
-    // DOS FUNCIONES PARA INCREMENTAR Y DECREMENTAR
-    //La función decrementQuantity se encarga de disminuir la cantidad de un producto seleccionado, siempre y cuando la cantidad actual sea mayor que 1.
     const decrementQuantity = () => {
-        if(quantity > 1 ){
+        if (quantity > 1) {
             setQuantity(quantity - 1)
         }
     }
-    // La función incrementQuantity se encarga de incrementar la cantidad de un producto seleccionado, siempre y cuando la cantidad actual sea menor que el stock disponible del producto.
+
     const incrementQuantity = () => {
-        if(quantity < product.stock){ //
+        if (quantity < product.stock) { //
             setQuantity(quantity + 1)
         }
     }
-
-    // PRECIO TOTAL
     const precioTotal = product.price * quantity;
-
-
-    // SIN HAY PRODUCT CARGA LOADING O PRODUCT NOT FOUND
     if (loading) {
-        return <div className='container mx-auto max-w-[1170px]'><Loading /></div>;
+        return <div className='container mx-auto max-w-[1170px]'><Loading/></div>;
     }
     if (!product) {
         return <div>Product not found</div>;
     }
 
     return (
-        <div className='container mx-auto max-w-[1170px]'>
-            <div className="grid grid-cols-2 pt-[50px] pb-[100px]">
-                <div className="span-col-1 pr-[30px]">
-                    <img src={product.img} alt="Imagen del producto" className='w-full rounded-[20px]'/>
+        <div className="fondoItemDetail">
+            <div className="pt-6">
+                <div className="mx-auto mt-6 max-w-xl flex items-center">
+                    <img src={product.img} alt="imagen ropa"
+                         className=" aspect-[3/4] size-full rounded-lg object-cover lg:block"/>
                 </div>
-                <div>
-                    <h1 className='font-serif italic font-semibold text-[45px] font-medium uppercase'>{product.name}</h1>
-                    <p className='font-mono text-[20px] my-[20px] '>{product.description}</p>
-                    <div>
-                        <h3>Tallas disponibles:</h3>
-                        <ul className='flex'>
+                <div
+                    className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+                    <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+                        <h1 className="text-[25px] tracking-wide font-bold font-serif">{product.name}</h1>
+                    </div>
+                    <div className="mt-4 lg:row-span-3 lg:mt-0">
+                        <h2 className="sr-only">Product information</h2>
+                        <p className="text-3xl tracking-tight text-gray-900">${precioTotal}</p>
+                        <div className="mt-10">
+                            <div className="flex items-center justify-between">
+                                <h3 className="text-2xl font-medium text-gray-900">Tamaño</h3>
+                            </div>
                             {product.sizes.map((size, index) => (
-                                <li key={index} className='text-[20px] my-[20px] border-[1px] w-[50px] flex justify-center mx-[10px]'>{size}</li>
+                                <label
+                                    key={product.id}
+                                    className="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-2xl font-medium uppercase text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6">
+
+                                    <span>{size}</span>
+                                    <span className="pointer-events-none absolute -inset-px rounded-md"
+                                          aria-hidden="true"></span>
+                                </label>
                             ))}
-                        </ul>
-                    </div>
-                    <p className='text-[20px] my-[20px]'>Stock: {product.stock}</p>
+                        </div>
 
-                    <div className='flex'>
-                        <button onClick={decrementQuantity} className='rounded-[5px] hover:bg-slate-600 hover:text-[#ffffff] w-[50px] border-[1px] text-[20px] flex justify-center'> - </button>
-                        <p className='text-[20px] px-[10px]'>{quantity}</p>
-                        <button onClick={incrementQuantity} className='rounded-[5px] hover:bg-slate-600 hover:text-[#ffffff] w-[50px] border-[1px] text-[20px] flex justify-center'> + </button>
+                        <button
+                            className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-brown-400 px-8 py-3 text-2xl font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Agregar
+                            al carrito
+                        </button>
                     </div>
 
-                    <p className='text-[20px] my-[20px]'>Precio: ${product.price} por unidad</p>
+                    <div
+                        className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+                        <div>
+                            <h3 className="sr-only">Description</h3>
+                            <div className="space-y-6">
+                                <p className="text-3xl font-mono text-justify text-gray-900">{product.description}</p>
+                            </div>
+                        </div>
+                        <p className="text-2xl">stock:{product.stock}</p>
+                        <div className='flex'>
+                            <button onClick={decrementQuantity}
+                                    className='rounded-[5px] bg-brown-400 hover:bg-slate-600 hover:text-[#ffffff] w-[50px] border-[1px] text-[20px] flex justify-center'> -
+                            </button>
+                            <p className='text-[20px] px-[10px]'>{quantity}</p>
+                            <button onClick={incrementQuantity}
+                                    className='rounded-[5px] bg-brown-400 hover:bg-slate-600 hover:text-[#ffffff] w-[50px] border-[1px] text-[20px] flex justify-center'> +
+                            </button>
+                        </div>
 
-                    <p className='text-[20px] my-[20px]'>Precio Total: ${precioTotal}</p>
-
-                    <button className='bg-[#171e27] text-[#ffffff] text-[20px] px-[20px] py-[5px] hover:bg-[#172625]'>Comprar</button>
-
+                    </div>
                 </div>
             </div>
         </div>
-    );
+
+    )
+        ;
 }
