@@ -1,6 +1,10 @@
 import "./Header.css";
 import Logo from "../../../public/Logo.png"
+import useCarrito from "../../UseCarrito/Carrito.jsx";
+import {Link} from "react-router-dom";
 function Header(){
+    const totalItem=useCarrito(state => state.cart.length)
+
     return (
         <header>
             <div className="container-hero">
@@ -9,41 +13,37 @@ function Header(){
                         <i className="fa-solid fa-headset"></i>
                         <div className="content-customer-support">
                             <span className="text">Soporte al cliente</span>
-                            <span className="number">123-456-789</span>
+                            <span className="number">(212)123-456</span>
                         </div>
                     </div>
                     <div className="container-logo">
-                        <img src={Logo} alt="logo" className="Logo"></img>
-                        <h1 className="logo"><a href="/public">Snowfall</a></h1>
+                        <img src={Logo} alt="logo" className="Logo"/>
+                        <h1 className="logo"><Link to="/">Snowfall</Link></h1>
                     </div>
                     <div className="container-user">
-
-                            <i className="fa-solid fa-user"></i>
+                        <Link to='/carrito'>
                             <i className="fa-solid fa-basket-shopping"></i>
+                        </Link>
                             <div className="content-shopping-cart">
-                                <span className="text">Cesta </span>
-                                <span className="number">(0)</span>
+                                <span className="text">Carrito </span>
+                                <span className="number">{totalItem}</span>
                             </div>
-                        </div>
+
+                </div>
                 </div>
             </div>
             <div className="container-navbar">
                 <nav className="navbar container">
-                    <i className="fa-solid fa-bars"></i>
+                    <nav className="nav visible">
                     <ul className="menu">
-                        <li><a href="/">Inicio</a></li>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/category/cardigan">Cardigans</a></li>
-                        <li><a href="/category/pantalon">Pantalones</a></li>
-                        <li><a href="/category/vestido">Vestidos</a></li>
-                        <li><a href="/contact">Contacto</a></li>
+                        <li><Link to="/">Inicio</Link></li>
+                        <li><Link to="/about">About</Link></li>
+                        <li><Link to="/category/cardigan">Cardigans</Link></li>
+                        <li><Link to="/category/pantalon">Pantalones</Link></li>
+                        <li><Link to="/category/vestido">Vestidos</Link></li>
+                        <li><Link to="/contact">Contacto</Link></li>
                     </ul>
-                    <form className="search-form">
-                    <input type="search"  placeholder="Buscar.." />
-                        <button className="btn-search">
-                            <i className="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </form>
+                    </nav>
                 </nav>
             </div>
         </header>

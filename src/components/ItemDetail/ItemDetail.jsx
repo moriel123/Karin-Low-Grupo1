@@ -2,11 +2,17 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {getProductById} from '../../data/asyncMock.jsx';
 import Loading from '../Loading/Loading.jsx';
+import useCarrito from '../../UseCarrito/Carrito.jsx';
 
 export default function ItemDetail() {
     const {productId} = useParams();
     const [product, setProduct] = useState({product: 0, stock: 0});
     const [loading, setLoading] = useState(true);
+    const addToCart= useCarrito(state => state.addToCart);
+    const addCarrito=()=>{
+        console.log("Se añadio un producto");
+        console.log(product);
+        addToCart(product) };
 
     useEffect(() => {
         getProductById(productId).then((data) => {
@@ -67,7 +73,7 @@ export default function ItemDetail() {
                         </div>
 
                         <button
-                            className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-brown-400 px-8 py-3 text-2xl font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Agregar
+                           onClick={addCarrito} className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-brown-400 px-8 py-3 text-2xl font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Agregar
                             al carrito
                         </button>
                     </div>

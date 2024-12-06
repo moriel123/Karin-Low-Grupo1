@@ -6,6 +6,10 @@
     --background-color: #f9f5f0;
     --dark-color: #151515;
 }
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+}
 
 html{
     font-size: 62.5%;
@@ -110,7 +114,7 @@ html{
 .menu li{
     list-style: none;
 }
-.menu a{
+.menu Link{
     text-decoration: none;
     font-size: 1.3rem;
     color: var(--dark-color);
@@ -118,7 +122,7 @@ html{
     text-transform: uppercase;
     position: relative;
 }
-.menu a:after{
+.menu Link::after{
     content:'';
     width: 1.5rem;
     height: 1px;
@@ -126,6 +130,21 @@ html{
     position: absolute;
     bottom: -3px;
     left:50%;
+    transform: translate(-50%, 50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.menu Link:hover::after {
+    opacity: 1;
+}
+.buttoncerrar{
+    display: none;
+}
+.buttonabrir{
+    display: none;
+}
+.menu Link:hover {
+    color: #fff;
 }
 
 footer {
@@ -157,6 +176,10 @@ footer {
     .navbar {
         padding: 1rem 2rem;
     }
+    .buttonabrir{
+        display: block;
+    }
+
 
     .navbar .fa-bars {
         display: block;
@@ -164,10 +187,29 @@ footer {
         font-size: 3rem;
     }
 
-    .menu {
-        display: none;
+    .nav {
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+        background-color: var(--primary-color);
+        padding: 2rem;
     }
 
+    .nav.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items:start;
+    }
+    .menu li Link{
+        color: white;
+    }
     .content-banner {
         max-width: 50rem;
         margin: 0 auto;
@@ -237,9 +279,6 @@ footer {
     }
 }
 
-/* ********************************** */
-/*       MEDIA QUERIES -- 468px       */
-/* ********************************** */
 @media (max-width: 468px) {
     html {
         font-size: 42.5%;

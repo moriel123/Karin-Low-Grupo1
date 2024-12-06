@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import './App.css'
 import About from "./components/About/About.jsx";
 import Contact from "./components/Contact/Contact.jsx";
@@ -8,23 +8,23 @@ import Body from "./components/Body/Body.jsx"
 import CategoryPage from "./components/Category/CategoryPage.jsx"
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 import ItemDetail from "./components/ItemDetail/ItemDetail.jsx";
+import PaginaCarrito from "./components/Carrito/PaginaCarrito.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
-
 
   return (
     <>
         <BrowserRouter>
             <Header/>
             <Routes>
-                <Route exact path="/" element={<Body></Body>}></Route>
-                <Route exact path="/contact" element={<Contact></Contact>}></Route>
-                <Route exact path="/about" element={<About></About>}></Route>
-                <Route exact path="/category/:categoryId" element={<CategoryPage></CategoryPage>}></Route>
-                <Route exact path="/products/:productId" element={<ItemDetail></ItemDetail>}></Route>
+                <Route path="/" element={<Body/>}/>
+                <Route path="/contact" element={<Contact/>}/>
+                <Route path="/about" element={<About/>}/>
+                <Route path="/category/:categoryId" element={<CategoryPage/>}/>
+                <Route path="/products/:productId" element={<ItemDetail/>}/>
+                <Route path='/carrito' element={<PaginaCarrito/>}/>
             </Routes>
-            <Footer></Footer>
+            <Footer/>
         </BrowserRouter>
     </>
   )

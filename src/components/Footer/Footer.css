@@ -5,21 +5,22 @@
 .container-footer {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    padding: 3rem;
+    gap: 2rem;
+    padding: 2rem;
 }
 
 .menu-footer {
     display: grid;
-    grid-template-columns: repeat(3, 1fr) 30rem;
+    grid-template-columns: repeat(2, 1fr) 30rem;
     gap: 3rem;
     justify-items: center;
 }
 
 .title-footer {
     font-weight: 600;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
+    text-decoration: underline;
 }
 
 .contact-info,
@@ -55,9 +56,5 @@
     font-weight: 300;
 }
 
-.footer-Logo{
-    height: 15rem;
-    width: 15rem;
 
-}
 

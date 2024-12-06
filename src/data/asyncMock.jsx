@@ -44,14 +44,14 @@ export const products = [
         name: "cardigan negro",
         category: "cardigan",
         description: "Entallado en punto de bouclé suave, escote redondo, con botones de metal",
-        img: "https://hmchile.vtexassets.com/arquivos/ids/6424518-483-725?v=638632717543930000&width=483&height=725&aspect=true",
+        img: "https://img.kwcdn.com/product/fancy/65297048-439e-41f0-9e55-84c88d4b6099.jpg?imageView2/2/w/800/q/70/format/webp",
         stock: 5,
         price: 5000,
         sizes: ['S', 'M', 'L'],
     }
     ,{
         id: 6,
-        name: "cardigan marrón anaranjado",
+        name: "cardigan anaranjado",
         category: "cardigan",
         description: "Cárdigan de manga larga con bordado floral, cárdigan casual con botones en el frente y cuello redondo para otoño, ropa de mujer.70% Acrílico,20% Nailon,10% Rayón, ",
         img: "https://img.kwcdn.com/product/fancy/e033ee07-96a8-497b-be9d-c5cd079bc4c8.jpg?imageView2/2/w/800/q/70/format/webp",
@@ -71,7 +71,7 @@ export const products = [
     }
     ,{
         id: 8,
-        name: "cardigan verde de hojas",
+        name: "cardigan verde",
         category: "cardigan",
         description: "Tejido a punto con botones delanteros, holgados con escote en v",
         img: "https://img.kwcdn.com/product/fancy/72d42ea8-f286-4062-b7f5-ca30032629c4.jpg?imageView2/2/w/800/q/70/format/webp",
