@@ -4,9 +4,6 @@ const useCarrito = create((set) => ({
     cart: [],
     total: 0,
     addToCart: (item) => set((state) => {
-        //console.log(state);
-        //console.log(item);
-       // console.log(state.cart.length);
         const existingItem = state.cart.find(cartItem => cartItem.id === item.id);
         if (existingItem) {
             return {

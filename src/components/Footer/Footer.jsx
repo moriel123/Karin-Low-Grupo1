@@ -13,11 +13,11 @@ function Footer(){
                     </div>
                     <div className="contact-info">
                         <Link to="/contact">
-                            <a className="title-footer">Contacto</a></Link>
+                            <a className="title-footer font-serif text-xl italic font-semibold">Contacto</a></Link>
                         <Link to="/about">
-                            <a className="title-footer">Acerca de nosotros</a></Link>
+                            <a className="title-footer font-serif text-xl italic font-semibold">Acerca de nosotros</a></Link>
                         <Link to="/">
-                            <a className="title-footer">Pagina Principal</a></Link>
+                            <a className="title-footer font-serif text-xl italic font-semibold">Pagina Principal</a></Link>
                         <a>Todos los derechos reservados al Moriel Low Yefi, copyright 2024</a>
                     </div>
                     <div className="w-full h-full grid grid-cols-3">

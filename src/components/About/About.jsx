@@ -9,7 +9,7 @@ const About = () => {
             <div className="flex flex-col lg:flex-row justify-between gap-8">
                 <div className="w-full lg:w-5/12 flex flex-col justify-center">
                     <h1 className="text-3xl lg:text-4xl font-serif font-bold leading-9 text-brown-700 pb-4">Sobre nosotros.</h1>
-                    <p className="font-mono text-base leading-6 text-black text-xl">El equipo de Snowfall, creemos en la
+                    <p className="font-serif text-base leading-6 text-black text-xl italic">El equipo de Snowfall, creemos en la
                         belleza en todas sus formas. Nuestro objetivo es crear una moda que celebre la diversidad de
                         cuerpos y estilos. Queremos que cada mujer se sienta comoda, segura y empoderada en su propia
                         piel. Diseñamos prendas versátiles y elegantes que adaptan a cualquier ocasión, sin dejar de
@@ -24,7 +24,7 @@ const About = () => {
             <div className="flex lg:flex-row flex-col justify-between gap-8 pt-12">
                 <div className="w-full lg:w-5/12 flex flex-col justify-center">
                     <h1 className="text-3xl lg:text-4xl font-serif  font-bold text-brown-700 pb-4">Nuestra historia.</h1>
-                    <p className="font-mono text-base leading-6 text-black text-xl">Nacimos de un sueño, un mundo donde
+                    <p className="font-serif text-base leading-6 text-black text-xl italic">Nacimos de un sueño, un mundo donde
                         cada persona pudiera expresar su estilo unico sin limitaciones, con esto nuestros valores son la
                         base de todo lo que hacemos, ya sea, calidad, variedad y accesibilidad, Además, desde nuestros
                         inicios, hemos enfrentado desafíos emocionantes y hemos celebrado grandes triunfos . cada venta

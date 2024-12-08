@@ -35,13 +35,13 @@ function Header(){
             <div className="container-navbar">
                 <nav className="navbar container">
                     <nav className="nav visible">
-                    <ul className="menu">
-                        <li><Link to="/">Inicio</Link></li>
-                        <li><Link to="/about">About</Link></li>
-                        <li><Link to="/category/cardigan">Cardigans</Link></li>
-                        <li><Link to="/category/pantalon">Pantalones</Link></li>
-                        <li><Link to="/category/vestido">Vestidos</Link></li>
-                        <li><Link to="/contact">Contacto</Link></li>
+                    <ul className="menu ">
+                        <li className='font-serif text-xl italic font-semibold'><Link to="/">Inicio</Link></li>
+                        <li className='font-serif text-xl italic font-semibold'><Link to="/about">About</Link></li>
+                        <li className='font-serif text-xl italic font-semibold'><Link to="/category/cardigan">Cardigans</Link></li>
+                        <li className='font-serif text-xl italic font-semibold'><Link to="/category/pantalon">Pantalones</Link></li>
+                        <li className='font-serif text-xl italic font-semibold'><Link to="/category/vestido">Vestidos</Link></li>
+                        <li className='font-serif text-xl italic font-semibold'><Link to="/contact">Contacto</Link></li>
                     </ul>
                     </nav>
                 </nav>

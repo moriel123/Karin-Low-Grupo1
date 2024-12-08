@@ -3,7 +3,7 @@ import principal from '../../../public/principal.jpg'
 import snow2 from '../../../public/snow2.jpg'
 import principal3 from '../../../public/principal3.jpg'
 import ItemList from "../ItemList/ItemList.jsx";
-import { Carousel, Typography, Button } from "@material-tailwind/react";
+import { Carousel, Typography } from "@material-tailwind/react";
 
 function Body() {
     return (
@@ -86,7 +86,7 @@ function Body() {
                     </div>
                 </div>
             </Carousel>
-            <h1 className="text-4xl text-center font-serif"> Te ofrecemos una variedad de estilos y tallas para que encuentres las prendas perfecta para mujeres </h1>
+            <h1 className="text-4xl text-center font-serif italic"> Te ofrecemos una variedad de estilos y tallas para que encuentres las prendas perfecta para mujeres </h1>
             <h2 className="font-bold text-2xl text-center font-serif">¡Compra ahora y lucir estilo!</h2>
             <ItemList/>
         </main>
